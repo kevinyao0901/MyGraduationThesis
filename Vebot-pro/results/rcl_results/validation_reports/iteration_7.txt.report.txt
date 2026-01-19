@@ -1,0 +1,17 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_7.txt
+Result: FAIL
+
+ERROR:
+
+Invalid syntax at line 1, near 'goto 5,5;' :
+The number of parameters (identifiers) is illegal.
+
+Invalid syntax at line 3, near 'goto 0,0;' :
+The number of parameters (identifiers) is illegal.
+
+
+--- Extracted program (if any) ---
+goto 5,5;  
+objects = get_operable_objs;  
+goto 0,0;  
+say objects;

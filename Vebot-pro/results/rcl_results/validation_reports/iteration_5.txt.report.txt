@@ -1,0 +1,12 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_5.txt
+Result: FAIL
+
+ERROR:
+
+Invalid syntax at line 1, near 'obj_name = query;' :
+Invalid object : 'query' on the right side of the assignment operator.
+
+
+--- Extracted program (if any) ---
+obj_name = query;
+approach obj_name;

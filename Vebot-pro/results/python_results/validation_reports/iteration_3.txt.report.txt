@@ -1,0 +1,7 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/python_results/iteration_3.txt
+Result: PASS
+
+OK
+
+--- Extracted program (if any) ---
+if obj_pos:

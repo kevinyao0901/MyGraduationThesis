@@ -1,0 +1,28 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_6.txt
+Result: FAIL
+
+ERROR:
+
+Invalid syntax at line 1, near 'user_input = query;' :
+Invalid object : 'query' on the right side of the assignment operator.
+
+Invalid syntax at line 2, near 'if (user_input == "1") {' :
+Condition should not be enclosed in parentheses in if-else statement
+
+Invalid syntax at line 4, near '} else if (user_input == "2") {' :
+Condition should not be enclosed in parentheses in if-else statement
+
+Invalid syntax at line 6, near '} else if (user_input == "3") {' :
+Condition should not be enclosed in parentheses in if-else statement
+
+The end of the program is incomplete or exists error!
+
+
+--- Extracted program (if any) ---
+user_input = query;
+if (user_input == "1") {
+    forward 5;
+} else if (user_input == "2") {
+    backward 1;
+} else if (user_input == "3") {
+    turnleft 180;

@@ -1,0 +1,12 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_1.txt
+Result: FAIL
+
+ERROR:
+
+Invalid syntax at line 2, near 'goto query' :
+Parameter types of the command are invalid.
+
+
+--- Extracted program (if any) ---
+query = query_user;
+goto query

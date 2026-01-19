@@ -1,0 +1,12 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_3.txt
+Result: FAIL
+
+ERROR:
+程序开头有问题
+
+
+--- Extracted program (if any) ---
+query_user
+grasp "obj"
+set_end 1.0 2.0 0.5 0.0 0.0 0.0
+release

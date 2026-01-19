@@ -1,0 +1,33 @@
+# Core dependencies
+torch>=2.0.0,<3.0.0     # install CPU or CUDA wheel appropriate for your system (see notes below)
+transformers>=4.30.0,<5.0.0
+safetensors>=0.3.0
+pyyaml>=6.0
+requests>=2.28.0
+huggingface-hub>=0.14.0
+sentencepiece>=0.1.97
+tokenizers>=0.13.3
+openai>=1.0.0
+
+# Optional / performance / quantization helpers (install only if needed)
+accelerate>=0.23.0    # optional, helps with device_map/accelerate-backed loading
+bitsandbytes>=0.40.0  # optional, required for 8-bit quantization runtimes
+awq>=0.0.1            # optional: install if your local snapshot requires AWQ runtime
+triton>=2.0.0         # optional: performance kernels (may require specific CUDA)
+
+# Utility / dev
+huggingface-hub>=0.14.0
+tqdm>=4.65.0
+
+# Notes:
+# - PyTorch should be installed with a wheel matching your CUDA version. Use the
+#   official PyTorch install selector (https://pytorch.org/get-started/locally/) or
+#   conda channels for reliable CUDA-compatible installs.
+# - If your local model snapshot is AWQ-quantized and requires `awq`/`autoawq`,
+#   follow the model/awq project documentation for compatible versions of
+#   transformers and torch. The awq/autoawq ecosystem has strict version
+#   requirements and may require older transformers/torch (see model author notes).
+# - If you plan to run on CPU only, it's safe to install a CPU-only torch wheel.
+#   Example (pip install):
+#     pip install "torch==2.2.0+cpu" -f https://download.pytorch.org/whl/torch_stable.html
+# - For GPU installs, prefer the official command from pytorch.org for your CUDA.

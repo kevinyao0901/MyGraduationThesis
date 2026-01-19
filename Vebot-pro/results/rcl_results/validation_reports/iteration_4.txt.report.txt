@@ -1,0 +1,10 @@
+File: /mnt/d/Graduation_Thesis/Vebot-pro/results/rcl_results/iteration_4.txt
+Result: FAIL
+
+ERROR:
+程序开头有问题
+
+
+--- Extracted program (if any) ---
+query_user "which layer's object do you need?" 
+grasp "layer"

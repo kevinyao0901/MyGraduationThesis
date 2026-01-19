@@ -1,0 +1,4 @@
+goto 5,5;  
+objects = get_operable_objs;  
+goto 0,0;  
+say objects;
