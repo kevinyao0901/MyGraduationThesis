@@ -1,0 +1,14 @@
+task1: asks the user which location they want to go to. Then, the robot moves to that location
+program1: |
+  '''
+  ans = query_user;
+  approach ans;
+  # Don't use goto ans!!!
+  '''
+
+task2: tell the user something
+program2: |
+  '''
+  list = get_operable_objs;
+  say "I found" list "over there!"
+  '''

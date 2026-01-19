@@ -1,0 +1,11 @@
+task:
+  - "The robot starts at (0,0) and asks the user which location they want to go to. 
+  Then, the robot moves to that location, observes what objects are present there, and returns to (0,0). 
+  After that, it asks the user which object needs to be picked up, and then proceeds to retrieve it."
+  - "The robot asks the user which object is needed, then goes to the table located at (0,5.02) to pick up the corresponding object, 
+  and places it next to the book on the same table."
+  - "The robot asks the user which object is needed, then grasps the object and places it on top of the bowl."
+  - "Ask the user which layer’s object is needed, then grasp the object from the corresponding layer."
+  - "Ask the user for an object, then move to the vicinity of that object."
+  - "Ask the user if the user says 1, then move forward 5 meters; if the user says 2, then move backward 1 meter; if the user says 3, then turn left 180 degrees."
+  - "Go to the table at to identify what objects are present, then return to the origin and tell me."

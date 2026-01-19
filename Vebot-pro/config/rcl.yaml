@@ -1,0 +1,29 @@
+llms:
+  default: main
+  models:
+    main:
+      llm_model_type: "api"
+      llm_model_name: "qwen3-14b"
+      prompt_path: "tasks/prompts/rcl/rcl_prompt.yaml"
+      api_url: "https://api.zhizengzeng.com/v1/"
+      api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+      use_shots: false
+
+
+# Phase LLM routing
+generation_llm_name: "main"
+
+# task
+task_yaml_path: "tasks/test/test.yaml"
+
+# other configs
+initial_state: "BASELINE"
+max_iteration: 1
+use_rcl: true
+compiler_path: "models/language/RCL_Compiler.jar"
+code_path: "models/language/demo.txt"
+robot_mode: test
+
+# logging configs
+enable_phase_logging: true  # Set to true to enable phase execution logging
+log_output_dir: "results"    # Directory for log files (only used if logging is enabled)

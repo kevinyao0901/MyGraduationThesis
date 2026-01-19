@@ -1,0 +1,5 @@
+# 多个任务示例
+task:
+  - "I'm thirsty and would like a cup of water."
+  - "Please pick up the red block and place it on the table."
+  - "Navigate to the kitchen and bring me a spoon."

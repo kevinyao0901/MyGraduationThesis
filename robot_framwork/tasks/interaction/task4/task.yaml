@@ -1,0 +1,8 @@
+instruction: Ask the user which layer’s object is needed, then grasp the object from the corresponding layer.
+detailed_info: The first layer position is from (0, 0.19, 0.73) to (0, 0.19, 0.13). The second layer position is from (0, 0.19, 1.13) to (0, 0.19, 0.73).
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/shelf/real_scene_phy.usd
+initial position: [0.0, -0.12, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+filter_by_distance: True
+code_lines: |

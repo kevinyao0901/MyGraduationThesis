@@ -1,0 +1,13 @@
+
+#!/usr/bin/env python
+# coding:utf-8
+import rospy
+import actionlib
+from sync_test.msg import SyncAction, SyncGoal
+from publish_variables import *
+from ros_cmd_utils import *
+from geometry_msgs.msg import PoseStamped
+from client import *
+rospy.init_node('executor_node')
+set_end_position(0.403,-0.402,0.62,0,1,0,0)
+    

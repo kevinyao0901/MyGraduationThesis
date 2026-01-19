@@ -1,0 +1,1 @@
+task: "The robot asks the user which object is needed, then goes to the table located at (0,5.02) to pick up the corresponding object, and places it next to the book on the same table."

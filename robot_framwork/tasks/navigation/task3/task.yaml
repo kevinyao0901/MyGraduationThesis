@@ -1,0 +1,8 @@
+instruction: The robot starts at (0,0) in a room and attempts to leave the current room to reach (5.87, -3.15) by not using goto or send_nav_goal or approach.
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

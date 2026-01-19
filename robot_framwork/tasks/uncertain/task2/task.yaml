@@ -1,0 +1,7 @@
+instruction: Dance for me.
+detailed_info: 
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/observation/real_scene_phy.usd
+initial position: [0.31, -0.25, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |

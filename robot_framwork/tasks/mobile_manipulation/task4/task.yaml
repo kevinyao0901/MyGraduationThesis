@@ -1,0 +1,9 @@
+instruction: The robot must go to press button_1 at [4.53, 1.45, 1.04], then to press button_2 at [-3.94, 0.0, 1.065].
+detailed_info:  only need to move the end-effector close to the button to press it
+    when using goto and set_end, do not use the task coordinates directly, but select nearby safe positions to avoid collision
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario_2/button/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

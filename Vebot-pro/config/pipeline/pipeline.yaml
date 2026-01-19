@@ -1,0 +1,48 @@
+llms:
+  default: main
+  models:
+    main:
+      llm_model_type: "ollama"
+      llm_model_name: "qwen3:4b"
+      prompt_path: "tasks/prompts/pipeline/generation_prompt.yaml"
+      shots_path: "tasks/prompts/pipeline/generation_shot.yaml"
+      use_shots: true
+
+    assert:
+      llm_model_type: "ollama"
+      llm_model_name: "qwen3:4b"
+      prompt_path: "tasks/prompts/pipeline/assert_prompt.yaml"
+      use_shots: false
+
+    verifier:
+      llm_model_type: "ollama"
+      llm_model_name: "qwen3:4b"
+      prompt_path: "tasks/prompts/pipeline/verifier_prompt.yaml"
+      shots_path: "tasks/prompts/pipeline/verifier_shot.yaml"
+      use_shots: true
+
+    fixer:
+      llm_model_type: "ollama"
+      llm_model_name: "qwen3:4b"
+      prompt_path: "tasks/prompts/pipeline/repair_prompt.yaml"
+      use_shots: false
+
+
+
+# Phase LLM routing
+generation_llm_name: "main"
+transform_llm_code1: "assert"
+transform_llm_code2: "verifier"
+repair_llm_name: "fixer"
+
+# tasl
+task_yaml_path: "tasks/test/test.yaml"
+
+# other configs
+initial_state: "GENERATION"
+max_iteration: 6
+use_rcl: false
+robot_mode: test
+
+enable_phase_logging: true  # Set to true to enable phase execution logging
+log_output_dir: "results" 

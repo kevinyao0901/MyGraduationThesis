@@ -1,0 +1,11 @@
+instruction: The table is located at coordinates (0, 3.8, 0). 
+    The robot moves to pick up the red_cube and blue_cube on the table one by one,
+    and then goes to the red_plane and blue_plane to drop off the corresponding colored cubes.
+detailed_info:  The robot can only grasp one thing at a time. But you must do list = get_operable_objs;  
+    if "red_cube" in list {... twice to grasp the two cube.  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario_2/tabletop/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

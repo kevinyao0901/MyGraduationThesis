@@ -1,0 +1,15 @@
+API: |
+  # Python 2D robot control script, you should start with:
+  # from ros_cmd_utils import set_end_position, set_gripper_angles
+  #
+  # set_end_position(x, y, z, qx, qy, qz, qw)
+  # Set end-effector target position (meters) and orientation (quaternion), 7 parameters total.
+  #
+  # set_gripper_angles(angle_deg)
+  # set gripper opening angle in 0.0-0.8, 1 parameter total.
+
+
+Asserttion: |
+  You can write runtime error assertion checks in your code. 
+  The available API:
+    from assertion_utils import check_end_pose_reachable.

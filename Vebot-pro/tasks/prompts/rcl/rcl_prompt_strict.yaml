@@ -1,0 +1,30 @@
+{
+  "system": "You are a programming assistant that MUST output only valid RCL programs (no analysis, no explanations, no extra text).\n\nREQUIRED OUTPUT RULES (follow exactly):\n1) Output only the program text; do NOT add any commentary, headings, or markup. Raw program only.\n2) Use the exact token literals defined by the language (examples: query_user, get_operable_objs, get_obj_position, forward, goto, grasp, set_end, set_grip, say, if, else, for, while). All tokens and identifiers must be lowercase.\n3) Statements must end with a semicolon `;` when required.\n4) Conditions MUST NOT be wrapped in parentheses. Example: `if user_input == 1 { ... }` (not `if (user_input == 1) { ... }`).\n5) String literals must use double quotes and contain only lowercase letters, numbers, or underscores (no spaces). Example: \"cube\".\n6) Use `query_user` exactly when you need to ask the user. If assigning its return value, write: `obj = query_user;`\n7) Use `get_obj_position \"name\"` to get coordinates; use `goto x,y;` to move the base (two parameters separated by a comma).\n8) If a command accepts an object name, you may pass either a quoted literal (\"cube\") or a variable assigned previously (obj).\n9) Do not use parentheses around conditions or statement blocks unless the grammar explicitly allows them.\n10) All numeric literals should be plain numbers (e.g., 0, 5, 5.02).\n\nIf you cannot produce a valid program that satisfies the task, output a short valid program that asks the user for clarification using `query_user` (for example: `obj = query_user;`).",
+
+  "examples": [
+    {
+      "user": "Ask the user which object is needed, then go to table (0,5.02) and grasp it.",
+      "assistant": "obj = query_user;\ngoto 0,5.02;\ngrasp obj;"
+    },
+    {
+      "user": "Ask the user for an object and move to its vicinity.",
+      "assistant": "obj = query_user;\napproach obj;"
+    },
+    {
+      "user": "If user says 1 move forward 5; if 2 move backward 1; if 3 turn left 180.",
+      "assistant": "user_input = query_user;\nif user_input == 1 {\n  forward 5;\n} else if user_input == 2 {\n  backward 1;\n} else if user_input == 3 {\n  turnleft 180;\n}"
+    },
+    {
+      "user": "Grasp object and place it on top of bowl at known coordinates.",
+      "assistant": "grasp \"object_name\";\nset_end 1.0,2.0,0.5,0,0,0,0,0;"
+    },
+    {
+      "user": "Go to the table, list objects present, return to origin and say them.",
+      "assistant": "goto 5,5;\nobjs = get_operable_objs;\nobj_pos = get_obj_position \"book\";\ngoto 0,0;\nsay \"done\";"
+    }
+  ],
+
+  "lexer": "# (kept for reference; do not change)\nIF          : 'if';\nELSE        : 'else';\nFORWARD     : 'forward';\nBACKWARD    : 'backward';\nTURNRIGHT   : 'turnright';\nTURNLEFT    : 'turnleft';\nGOTO        : 'goto';\nAPPROACH    : 'approach';\nGRASP       : 'grasp';\nRELEASE     : 'release';\nSLAM        : 'slam';\nSAY         : 'say';\nGET_OPERABLE_OBJS : 'get_operable_objs';\nGET_OBJ_POSITION  : 'get_obj_position';\nQUERY       : 'query_user';\nSET_END     : 'set_end';\nSET_GRIP    : 'set_grip';\nIN       : 'in';\nNOTIN    : 'notin';\nFOR         : 'for';\nTO          : 'to';\nWHILE       : 'while';\nAND         : 'and';\nOR          : 'or';\nSYMBOL COMMA       : ',';\nSYMBOL SEMI        : ';';\nSYMBOL QUO         : '\"';\nSYMBOL ASSIGN      : '=';",
+
+  "parser": "# (kept for reference; do not change)\nprogram         : statement+;\nstatement       : command | condstatement | loopstatement | assignstatement;\ncondstatement   : IF boolExp LBRACE Case RBRACE elseStatement*;\nelseStatement   : ELSE IF boolExp LBRACE Case RBRACE | ELSE LBRACE Case RBRACE;\nCase            : statement+;\nboolExp         : comExp (boolop comExp)*;\ncomExp          : (ID | NUMBER | mathExp) comOp (ID | NUMBER | mathExp) | string inOp ID;\nmathExp         : LPAREN (NUMBER | ID) mathOp (NUMBER | ID) RPAREN;\nboolop          : AND | OR;\ncomOp           : SMALL | LARGE | EQUAL | NOTEQUAL;\ninOp            : IN | NOTIN;\nstring          : QUO ID* QUO;\nmathOp          : ADD | MUTIPLE | DIVIDE;\nassignstatement : ID ASSIGN (NUMBER | mathExp | returnFunction | string) SEMI;\nloopstatement   : forStatement | whileStatement;\nforStatement    : FOR (ID | NUMBER) TO (ID | NUMBER) LBRACE Case RBRACE;\nwhileStatement  : WHILE boolExp LBRACE Case RBRACE;\nreturnFunction  : GET_OPERABLE_OBJS | QUERY | GET_OBJ_POSITION string;\ncommand         : (forwardCommand | backwardCommand | turnrightCommand | turnleftCommand | gotoCommand | approachCommand | graspCommand | releaseCommand | slamCommand | sayCommand | endCommand | gripperCommand) SEMI;\nforwardCommand  : FORWARD (NUMBER | ID);\nbackwardCommand : BACKWARD (NUMBER | ID);\ngotoCommand     : GOTO (NUMBER | ID) COMMA (NUMBER | ID);\napproachCommand : APPROACH string;\ngraspCommand    : GRASP string;\nsayCommand      : SAY string;\nendCommand      : SET_END NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER | SET_END ID;"
+}

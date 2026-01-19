@@ -1,0 +1,8 @@
+instruction: The robot asks the user which object is needed, then grasps the object and places it on top of the bowl.
+detailed_info:
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/tabletop (2)/real_scene_phy.usd
+initial position: [0.31, -0.12, 0.0]
+initial_orientation:  [0.70710678, 0.0, 0.0, 0.70710678]
+filter_by_distance: True
+code_lines: |

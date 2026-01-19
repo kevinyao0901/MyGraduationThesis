@@ -1,0 +1,9 @@
+
+Invalid syntax at line 3, near 'if obj_name in list {' :
+Invalid boolean expression.
+
+Invalid syntax at line 10, near '}' :
+This statement exists errors.
+
+Invalid syntax at line 13, near '}' :
+This statement exists errors.

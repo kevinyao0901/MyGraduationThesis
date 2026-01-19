@@ -1,0 +1,17 @@
+task1: "Goto point(2,5) to see if there is a cup"
+program1: |
+  ```
+  send_nav_goal(2,5,180);
+  list = get_operable_objs();
+  if "cup" in list: ...
+  # Don’t put mathematical expressions after the goto instruction; just specify a concrete coordinate directly.
+  ```
+task2: "Goto..."
+program2: |
+  ```
+  send_nav_goal(0.0,5.0,0);
+  # If I told you Target endpoint (5.000, 0.000) is occupied (obstacle detected).
+  # You can repair the code by decreasing the target distance slightly, for example, try moving 0.05 units in y-axis each time.
+  # Updated example: 
+  send_nav_goal(0.0, 4.97, 0.0);
+  ```

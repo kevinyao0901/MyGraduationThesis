@@ -1,0 +1,55 @@
+instruction: The robot first turns left by 90°, then moves forward 2 meters. 
+    After that, it patrols among the three points (2.5, 5), (0, 6.4), and (-2.5, 5) with yaw 90, searching for a cube at each point it arrives at. 
+    If a cube is found, the robot grasps it and then moves to (4.1, -0.67) with yaw 90 to throw the cube into the Trash_Can.  
+detailed_info: 
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario_2/tabletop/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+filter_by_distance: True
+code_lines: |
+    # turn_left(90)
+    # rospy.sleep(2)
+    # move_forward(2)
+    # rospy.sleep(2)
+    # send_nav_goal(2.5,5,90)
+    # rospy.sleep(2)
+    # send_nav_goal(0,6.4,-90)
+    # rospy.sleep(2)
+    # move_forward(1.0)
+    # rospy.sleep(2)
+
+
+    # world_pos = [0.0, 5.4, 0.6]
+    # world_quat = [0.706, 0.706, 0.0, 0.0] # xyzw
+    # publish_hand_pose_once(world_pos, world_quat)
+    # rospy.sleep(8)
+
+
+    # publish_set_object_options( 
+    #     name="cube",
+    #     attract=True,
+    #     offset=[0.00, 0.0, 0.093],
+    #     alpha=0.1,
+    #     align_orientation=True
+    # )
+
+    # publish_gripper_width_once(0.060)  # 夹爪开度 4cm
+    # rospy.sleep(1)
+    # move_backward(0.2)
+
+    # send_nav_goal(4.1,-0.67,0)
+    # rospy.sleep(2)
+    
+    # world_pos = [4.3, -0.67, 0.5]
+    # world_quat = [0.706, 0.706, 0.0, 0.0] # xyzw
+    # publish_hand_pose_once(world_pos, world_quat)
+    # rospy.sleep(8)
+
+    # publish_gripper_width_once(0.08)  # 夹爪开度 4cm
+    # rospy.sleep(1)
+
+    # publish_set_object_options( 
+    #     name="cube",
+    #     attract=False,
+    # )

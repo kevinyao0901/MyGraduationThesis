@@ -1,0 +1,8 @@
+instruction: Turn left 90 degree, the robot must move forward 1 meter at a time, repeat up to 5 times, and stop early if it sees a bottle. Once a bottle is found, set the gripper angle to 0.8.
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario_2/button/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

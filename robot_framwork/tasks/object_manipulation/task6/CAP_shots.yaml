@@ -1,0 +1,15 @@
+backward:
+  task1: "Move the end-effector to : (0.31, -1.75, 0.0)"
+  program1: |
+    ```
+    set_end_position(0.31, -1.75, 0.0, 0.706, 0.706, 0, 0);
+    ```
+  task2:  "Loop"
+  program2: |
+    '''
+    pose = [0.320, -0.248, 0.775, 0.706, 0.706, 0, 0];
+    for 1 to 3 {
+      pose[2] += 6;
+      et_end(pose[0],pose[1],pose[2],pose[3],pose[4],pose[5],pose[6]);
+    }
+    '''

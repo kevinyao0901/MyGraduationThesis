@@ -1,0 +1,7 @@
+instruction: If you see a bottle, move the robotic arm to position (0.69,-0.28,0.72) with orientation (0,0.706,0.706,0). If the bottle is placed on top of a bowl, set the robotic arm gripper to 0.0.
+detailed_info: 
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/observation/real_scene_phy.usd
+initial position: [0.31, -0.25, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |

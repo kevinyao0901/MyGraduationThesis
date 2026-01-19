@@ -1,0 +1,3 @@
+note1: |
+  You can use query_user() or print() in python to interact with user.
+  The user will give you a string, and you can use approach to goto the place.

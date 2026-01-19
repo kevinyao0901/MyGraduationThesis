@@ -1,0 +1,22 @@
+digraph CFG {
+  // 全局节点样式
+  node [shape=box, style=filled, color=lightblue, fontcolor=black];
+  // 全局边样式
+  edge [color=darkgreen, penwidth=2.0, fontcolor=blue, fontsize=12, arrowhead=vee];
+  ranksep=1.5;
+  nodesep=0.5;
+  size="20,20";
+  dpi=1024;
+  node_1413246829 [label="BlockNode
+{APPROACH   Identifier ''obj_name''}"];
+  node_625576447 [label="ExitNode", color=green, fontcolor=black];
+  node_396180261 [label="EntryNode", color=green, fontcolor=black];
+  node_1956710488 [label="BlockNode
+{QUERY   mid_0
+ASSIGN   obj_name, mid_0}"];
+  {rank=min; node_396180261 }
+  {rank=max; node_625576447 }
+  node_1956710488 -> node_1413246829 [label="True"];
+  node_396180261 -> node_1956710488 [label="True"];
+  node_1413246829 -> node_625576447 [label="True"];
+}

@@ -1,0 +1,8 @@
+instruction: The robot starts from the initial position (0,0), there is a room in front of the robot. Try to enter the rooms. If a cube is found inside, it means the robot successfully entered the room.
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

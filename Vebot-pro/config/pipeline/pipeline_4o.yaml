@@ -1,0 +1,52 @@
+llms:
+  default: main
+  models:
+    main:
+      llm_model_type: "api"
+      llm_model_name: "gpt-4o"
+      api_url: "https://api.zhizengzeng.com/v1/"
+      api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+      prompt_path: "tasks/prompts/framework_prompt.yaml"
+      shots_path: "tasks/prompts/framework_shot.yaml"
+      use_shots: true
+
+    assert:
+      llm_model_type: "api"
+      llm_model_name: "gpt-4o"
+      api_url: "https://api.zhizengzeng.com/v1/"
+      api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+      prompt_path: "tasks/prompts/assert_prompt.yaml"
+      use_shots: false
+
+    verifier:
+      llm_model_type: "api"
+      llm_model_name: "gpt-4o"
+      api_url: "https://api.zhizengzeng.com/v1/"
+      api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+      prompt_path: "tasks/prompts/verifier_prompt.yaml"
+      shots_path: "tasks/prompts/verifier_shot.yaml"
+      use_shots: true
+
+    fixer:
+      llm_model_type: "api"
+      llm_model_name: "gpt-4o"
+      api_url: "https://api.zhizengzeng.com/v1/"
+      api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+      prompt_path: "tasks/prompts/repair_prompt.yaml"
+      use_shots: false
+
+
+# Phase LLM routing
+generation_llm_name: "main"
+transform_llm_code1: "assert"
+transform_llm_code2: "verifier"
+repair_llm_name: "fixer"
+
+# tasl
+task_yaml_path: "tasks/test/test.yaml"
+
+# other configs
+initial_state: "GENERATION"
+max_iteration: 6
+use_rcl: false
+robot_mode: test

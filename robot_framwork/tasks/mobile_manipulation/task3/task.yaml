@@ -1,0 +1,11 @@
+instruction: The robot starts at the origin (0, 0, 0). 
+    The task requires the robot to travel straight to the table located at coordinates (6.4, -0.95, 0). 
+    Upon reaching the table, the robot should grab a bottle from the table. 
+    After grabbing the bottle, the robot needs to back up, rotate, and then go to find the user.
+detailed_info:  The user could be (-3, -1.4, 0), (2.28, -1.4, 0), (-3, 7.9, 0)
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario_2/bottle/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

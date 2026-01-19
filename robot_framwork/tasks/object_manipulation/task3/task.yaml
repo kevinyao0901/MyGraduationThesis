@@ -1,0 +1,25 @@
+instruction: The robot picks up a cube from the second layer of the shelf, then moves the end of its robotic arm to the the central area of the first layer and releases the gripper.
+detailed_info: The first layer position is from (0, 0.19, 0.73) to (0, 0.19, 0.13).
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/shelf/real_scene_phy.usd
+initial position: [0.0, -0.12, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |
+  publish_pick_command([-1.269877, 0.56238806, 1.85119403, -1.28880597, -1.78089552, 2.485351, -1.090143])
+  rospy.sleep(6)
+  publish_gripper_width_once(0.8)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([-1.269877, 1.163136, 2.13238806, -1.804529, -2.407888, 2.485351, -1.090143])
+  rospy.sleep(4)
+  publish_pick_command([-1.269877, 1.163136, 1.866899, -1.804529, -2.407888, 2.485351, -1.090143])
+  rospy.sleep(3)
+  publish_gripper_width_once(0.050)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([-2.295714, 1.297933, 2.512976, -2.668725, -1.969630, 2.551702, -1.027751])
+  rospy.sleep(3)
+  publish_pick_command([-1.471878, 0.796567, 1.538913, -2.247766, -2.869403, 2.390414, 0.377553])
+  rospy.sleep(4)
+  publish_pick_command([-1.12477612, 1.61686567, 1.538913, -1.45283582, -2.62447761, 2.90567164, 1.87462687])
+  rospy.sleep(4)
+  publish_gripper_width_once(0.8)  # 夹爪开度 4cm
+  rospy.sleep(1)

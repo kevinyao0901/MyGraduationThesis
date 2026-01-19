@@ -1,0 +1,20 @@
+backward:
+  task1: "Move the end-effector to : (0.31, -1.75, 0.0)"
+  program1: |
+    ```
+    set_end 0.31, -1.75, 0.0, 0.706, 0.706, 0, 0;
+    ```
+  task2:  "grasp the bottle in the second layer"
+  program2: |
+    '''
+    grasp "bottle";
+    '''
+  task3 : "put the end effector above the bowl"
+  program3: |
+    '''
+    pos_bowl = get_obj_position "bowl";
+    add_variable pos_bowl 2 0.1;
+    set_end pos_bowl;
+    # Remember this language didn't support 'red_sphere_pos[0] + 0.1' 
+    # Don’t put mathematical expressions after the set_end instruction; just specify a concrete coordinate directly.
+    '''

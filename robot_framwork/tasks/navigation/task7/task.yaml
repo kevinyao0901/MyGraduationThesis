@@ -1,0 +1,8 @@
+instruction: Turn left 90 degree, go forward 3 meter. Turn right 30 degree, backforward 2 meter. Navigate to (0,0).
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

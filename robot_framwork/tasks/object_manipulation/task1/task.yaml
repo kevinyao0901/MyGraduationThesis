@@ -1,0 +1,19 @@
+instruction: The robot arm sequentially moves its end-effector to three positions in space to form a triangle and sets the gripper to different angles at each point.
+detailed_info: The end-effector initial position is 0.315, -1.751, 0.777 and its initial orientation quaternion is 0.706, 0.706, 0,0
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/tabletop/real_scene_phy.usd
+initial position: [0.31, -1.75, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |
+  set_end_position(0.13, -1.57, 0.56, 0.706, 0.706, 0.0, 0.0)
+  rospy.sleep(2.0)
+  set_gripper_angles(0.2)
+  rospy.sleep(2.0)
+  set_end_position(0.50, -1.71, 1.02, 0.706, 0.706, 0.0, 0.0)
+  rospy.sleep(2.0)
+  set_gripper_angles(0.4)
+  rospy.sleep(2.0)
+  set_end_position(0.009, -1.78, 0.50, 0.706, 0.706, 0.0, 0.0)
+  rospy.sleep(2.0)
+  set_gripper_angles(0.6)
+  rospy.sleep(2.0)

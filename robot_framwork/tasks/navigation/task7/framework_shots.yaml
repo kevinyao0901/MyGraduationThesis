@@ -1,0 +1,5 @@
+task1: try to goto some place
+program:
+  forward 8;
+  # "Write more movement and rotation commands, not just forward."
+  # If I sat FORWARD/BACKWARD motion blocked by obstacle at. You can try rotate!

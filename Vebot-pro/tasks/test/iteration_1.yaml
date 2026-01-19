@@ -1,0 +1,1 @@
+task: "The robot starts at (0,0) and asks the user which location they want to go to. Then, the robot moves to that location, observes what objects are present there, and returns to (0,0). After that, it asks the user which object needs to be picked up, and then proceeds to retrieve it."

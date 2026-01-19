@@ -1,0 +1,56 @@
+/home/kevin/miniconda3/envs/env_isaaclab/lib/python3.12/site-packages/awq/__init__.py:21: DeprecationWarning: 
+I have left this message as the final dev message to help you transition.
+
+Important Notice:
+- AutoAWQ is officially deprecated and will no longer be maintained.
+- The last tested configuration used Torch 2.6.0 and Transformers 4.51.3.
+- If future versions of Transformers break AutoAWQ compatibility, please report the issue to the Transformers project.
+
+Alternative:
+- AutoAWQ has been adopted by the vLLM Project: https://github.com/vllm-project/llm-compressor
+
+For further inquiries, feel free to reach out:
+- X: https://x.com/casper_hansen_
+- LinkedIn: https://www.linkedin.com/in/casper-hansen-804005170/
+
+  warnings.warn(_FINAL_DEV_MESSAGE, category=DeprecationWarning, stacklevel=1)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:33<01:33, 93.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:55<00:00, 86.84s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:55<00:00, 87.79s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:27<01:27, 87.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:49<00:00, 84.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:49<00:00, 84.96s/it]
+
+[Session] Results will be saved to: results/session_20260119_111026
+
+
+================================================================================
+Processing Task 1/1
+================================================================================
+Task: I'm thirsty and would like a cup of water. Could you please go to find and then get me one?
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:26<?, ?it/s]
+❌ Task 1 failed: Failed to load local Qwen model from /mnt/d/Graduation_Thesis/my_model/models--Qwen--Qwen3-14B-AWQ/snapshots/31c69efc29464b6bb0aee1398b5a7b50a99340c3: Failed to load local Qwen model on requested device_map={'': 'cuda:0'}: CUDA out of memory. Tried to allocate 1.45 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 20.06 GiB is allocated by PyTorch, and 49.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Ensure your environment has a compatible CUDA-enabled torch, and that any required libs for quantized models (autoawq/awq) are installed.
+
+
+================================================================================
+PHASE EXECUTION SUMMARY
+================================================================================
+
+1. OneTimePhase
+   Status: ERROR
+   Duration: 27.423s
+   Next State: None
+   Error: Failed to load local Qwen model from /mnt/d/Graduation_Thesis/my_model/models--Qwen--Qwen3-14B-AWQ/snapshots/31c69efc29464b6bb0aee1398b5a7b50a99340c3: Failed to load local Qwen model on requested device_map={'': 'cuda:0'}: CUDA out of memory. Tried to allocate 1.45 GiB. GPU 0 has a total capacity of 6.00 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 20.06 GiB is allocated by PyTorch, and 49.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Ensure your environment has a compatible CUDA-enabled torch, and that any required libs for quantized models (autoawq/awq) are installed.
+
+Total Execution Time: 27.423s
+================================================================================
+
+
+[PhaseLogger] Execution log saved to: results/session_20260119_111026/task_1.json
+
+================================================================================
+All Tasks Completed: 1 tasks
+================================================================================
+✅ Success: 0
+❌ Failed: 1
+================================================================================
+

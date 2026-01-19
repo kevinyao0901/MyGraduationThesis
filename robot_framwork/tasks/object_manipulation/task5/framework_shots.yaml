@@ -1,0 +1,12 @@
+task1: "Move the end-effector to : (0.31, -1.75, 0.0)"
+program1: |
+  ```
+  set_end 0.31, -1.75, 0.0, 0.706, 0.706, 0, 0;
+  ```
+task2:  "Find if there is a cube"
+program2: |
+  '''
+  list = get_operable_objs;
+  if "cube" in list......
+  # You can't just write if "bottle" in get_operable_objs...
+  '''

@@ -1,0 +1,8 @@
+instruction: The robot starts from the initial position (0,0), and navigates to (5.56,-1.83) to check if there is a cube. If true then navigate to(-6.1,3.28), else back to the initial position 
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

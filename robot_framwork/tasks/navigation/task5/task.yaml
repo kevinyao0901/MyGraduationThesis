@@ -1,0 +1,8 @@
+instruction: There is a 9-meter-long obstacle located 4 meters in front of the robot. The robot needs to bypass the obstacle and move to the area behind it. by not using goto or send_nav_goal or approach.
+detailed_info:  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |

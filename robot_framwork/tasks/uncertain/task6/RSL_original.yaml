@@ -1,0 +1,126 @@
+system: |
+  You are a programming assistant specialized in generating code for a custom-designed robot control language.
+  Given a **natural language description** of a user's task, generate a cohesive program using this custom language.
+  Only provide the code without any additional explanation or information.
+  The **lexical and syntactic rules** of this language are defined in a format similar to ANTLR.
+  All **tokens, keywords, symbols, and identifiers** in the language are written in **lowercase** (e.g., `if`, `forward`, `turnleft`, `set_end`, `set_grip`, etc.).
+  In the lexer specification, the part **before** the colon is the token type used by the grammar,
+  and the part **after** the colon (in single quotes) is the exact literal that appears in programs.
+
+lexer: |
+  # Lexical Rules: token type before colon, literal pattern in single quotes
+
+  # conditional keywords
+  IF          : 'if';
+  ELSE        : 'else';
+
+  # move interfaces
+  FORWARD     : 'forward';
+  BACKWARD    : 'backward';
+
+  # rotate interfaces
+  TURNRIGHT   : 'turnright';
+  TURNLEFT    : 'turnleft';
+
+  # navigation interface
+  GOTO        : 'goto';
+
+  # object interaction interfaces
+  APPROACH    : 'approach';
+  GRASP       : 'grasp';
+  RELEASE     : 'release';
+  SLAM        : 'slam';
+  SAY         : 'say';
+  GET_OPERABLE_OBJS : 'get_operable_objs';
+  GET_OBJ_POSITION  : 'get_obj_position';
+  QUERY       : 'query_user';
+  SET_END     : 'set_end';
+  SET_GRIP    : 'set_grip';
+
+  # conditional expression functions
+  IN       : 'in';
+  NOTIN    : 'notin';
+
+  # loop keywords
+  FOR         : 'for';
+  TO          : 'to';
+  WHILE       : 'while';
+
+  # boolean operators
+  AND         : 'and';
+  OR          : 'or';
+
+  # symbol tokens (symbol tokens must be prefixed with SYMBOL)
+  # special symbols may appear without spaces around them; a preprocessing step splits them
+  # special symbols follow longest-match precedence (e.g., '!=' over '!' and '==' over '=')
+  SYMBOL LBRACE      : '{';
+  SYMBOL RBRACE      : '}';
+  SYMBOL COMMA       : ',';
+  SYMBOL SEMI        : ';';
+  SYMBOL LPAREN      : '(';
+  SYMBOL RPAREN      : ')';
+  SYMBOL QUO         : '"';
+  SYMBOL ADD         : '+';
+  SYMBOL MUTIPLE     : '*';
+  SYMBOL DIVIDE      : '/';
+  SYMBOL SMALL       : '<';
+  SYMBOL LARGE       : '>';
+  SYMBOL EQUAL       : '==';
+  SYMBOL NOTEQUAL    : '!=';
+  SYMBOL ASSIGN      : '=';
+
+  # identifiers and numbers are recognized by default (no need to define)
+  # whitespace, newlines, and comments are skipped by default
+  # the lexer splits tokens by spaces (after preprocessing special symbols)
+
+parser: |
+  # Syntactic Rules (LL(1); avoid left recursion and indirect common prefixes)
+
+  program         : statement+;
+  statement       : command | condstatement | loopstatement | assignstatement;
+
+  # conditional statement
+  condstatement   : IF boolExp LBRACE Case RBRACE elseStatement*;
+  elseStatement   : ELSE IF boolExp LBRACE Case RBRACE | ELSE LBRACE Case RBRACE;
+  Case            : statement+;
+
+  boolExp         : comExp (boolop comExp)*;
+  comExp          : (ID | NUMBER | mathExp) comOp (ID | NUMBER | mathExp) | string inOp ID;
+  mathExp         : LPAREN (NUMBER | ID) mathOp (NUMBER | ID) RPAREN;
+  boolop          : AND | OR;
+  comOp           : SMALL | LARGE | EQUAL | NOTEQUAL;
+  inOp            : IN | NOTIN;
+  string          : QUO ID* QUO;
+  mathOp          : ADD | MUTIPLE | DIVIDE;  # minus is intentionally not supported
+
+  # assignment statement
+  assignstatement : ID ASSIGN (NUMBER | mathExp | returnFunction | string) SEMI;
+
+  # loop constructs
+  loopstatement   : forStatement | whileStatement;
+  forStatement    : FOR (ID | NUMBER) TO (ID | NUMBER) LBRACE Case RBRACE;
+  whileStatement  : WHILE boolExp LBRACE Case RBRACE;
+
+  # functions with return values
+  returnFunction  : GET_OPERABLE_OBJS | QUERY | GET_OBJ_POSITION string;
+  # If you want to get the list of operable objects, use: list = get_operable_objs
+  # If you want to get the position of a specific object, use: pos = get_obj_position "cube"
+
+  # command statements
+  command         : (forwardCommand | backwardCommand | turnrightCommand | turnleftCommand |
+                    gotoCommand | approachCommand | graspCommand | releaseCommand |
+                    slamCommand | sayCommand | endCommand | gripperCommand) SEMI;
+  forwardCommand  : FORWARD (NUMBER | ID);
+  backwardCommand : BACKWARD (NUMBER | ID);
+  turnrightCommand: TURNRIGHT (NUMBER | ID);
+  turnleftCommand : TURNLEFT (NUMBER | ID);
+  # 'goto' and 'approach' are used for moving the mobile base, not controlling the robotic arm
+  gotoCommand     : GOTO (NUMBER | ID) COMMA (NUMBER | ID);
+  approachCommand : APPROACH string;
+  graspCommand    : GRASP string;
+  sayCommand      : SAY string;
+  # 'set_grip' accepts a numeric value in the range 0.0 to 0.8
+  gripperCommand  : SET_GRIP NUMBER;
+  endCommand      : SET_END NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER COMMA NUMBER | SET_END ID;
+  releaseCommand  : RELEASE;
+  slamCommand     : SLAM;

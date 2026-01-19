@@ -1,0 +1,37 @@
+{
+  "nodes" : [ {
+    "id" : "node_625576447",
+    "type" : "ExitNode"
+  }, {
+    "id" : "node_396180261",
+    "type" : "EntryNode"
+  }, {
+    "irList" : [ {
+      "operands" : [ "mid_0" ],
+      "irHash" : 22069592,
+      "rslcode" : "obj_name = query_user; at line 1",
+      "operation" : "QUERY"
+    }, {
+      "operands" : [ "obj_name", "mid_0" ],
+      "irHash" : 1160003871,
+      "rslcode" : "",
+      "operation" : "ASSIGN"
+    }, {
+      "operands" : [ "Identifier ''obj_name''" ],
+      "irHash" : 490150701,
+      "rslcode" : "approach obj_name; at line 2",
+      "operation" : "APPROACH"
+    } ],
+    "id" : "node_633075331",
+    "type" : "BlockNode"
+  } ],
+  "edges" : [ {
+    "condition" : "True",
+    "src" : "node_396180261",
+    "dest" : "node_633075331"
+  }, {
+    "condition" : "True",
+    "src" : "node_633075331",
+    "dest" : "node_625576447"
+  } ]
+}

@@ -1,0 +1,4 @@
+task1: try to goto some place
+program: |
+   operable_objs = get_operable_objs()
+   # The operable_objs is just a string of list!

@@ -1,0 +1,4 @@
+The target object's position is not yet determined or it may not exist. It's recommended to move the robot to explore the map or directly use 'goto' to a specific coordinate.
+Please modify the code starting from :
+approach obj_name; at line 2 in your original code.
+Do not repeat any code that appears before this line—only provide the corrected continuation from here.If there are assignment statements before this line, you must rewrite them as well.

@@ -1,0 +1,9 @@
+backward:
+
+  task1 : "put the end effector above the bowl"
+  program1: |
+    '''
+    pos_bowl = get_obj_position("bowl");
+    pos_bowl[2] += 0.2;
+    set_end(pos_bowl[0],pos_bowl[1],pos_bowl[2],0,0,0,1);
+    '''

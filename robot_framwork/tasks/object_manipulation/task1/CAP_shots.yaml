@@ -1,0 +1,8 @@
+backward:
+  task: "Move the end-effector sequentially to three positions: (0.31, -1.75, 0.0), (0.5, -1.5, 0.0), and (0.7, -1.2, 0.0)"
+  program: |
+    ```
+    set_end_position(0.31, -1.75, 0.0, 0.706, 0.706, 0, 0);
+    set_end_position(0.5, -1.5, 0.0, 0.706, 0.706, 0, 0);
+    set_end_position(0.7, -1.2, 0.0, 0.706, 0.706, 0, 0);
+    ```

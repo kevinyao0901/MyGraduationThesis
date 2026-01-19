@@ -1,0 +1,40 @@
+# llms:
+#   default: main
+#   models:
+#     main:
+#       llm_model_type: "api"
+#       llm_model_name: "qwen3-14b"
+#       prompt_path: "tasks/prompts/baseline/baseline_prompt.yaml"
+#       api_url: "https://api.zhizengzeng.com/v1/"
+#       api_key: "sk-zk2d42a616378aa59957e7ac3f740f9b5c069457387de298"
+#       use_shots: false
+
+
+# Phase LLM routing
+generation_llm_name: "main"
+
+# Optional local Qwen configuration: when present, GenerationPhase will
+# instantiate and use a local Qwen model instead of the configured remote LLM.
+# Update model_path to point to your local snapshot directory.
+local_qwen:
+  model_path: "/mnt/d/Graduation_Thesis/my_model/models--Qwen--Qwen3-14B-AWQ/snapshots/31c69efc29464b6bb0aee1398b5a7b50a99340c3"
+  prompt_path: "/mnt/d/Graduation_Thesis/Vebot-pro/tasks/prompts/pipeline/generation_prompt.yaml"
+  shots_path: ""          # optional: path to few-shot examples (leave empty to disable)
+  use_shots: false
+  use_gpu: true         # set true if you have CUDA-ready environment and want GPU loading
+  generation_kwargs:
+    max_new_tokens: 1024
+    do_sample: false
+
+# task
+task_yaml_path: "/mnt/d/Graduation_Thesis/Vebot-pro/tasks/test/test.yaml"
+
+# other configs
+initial_state: "ONE_TIME"
+max_iteration: 1
+use_rcl: false
+robot_mode: test
+
+# logging configs
+enable_phase_logging: true  # Set to true to enable phase execution logging
+log_output_dir: "results"    # Directory for log files (only used if logging is enabled)

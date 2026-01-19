@@ -1,0 +1,7 @@
+instruction:  Move the end of the robotic arm four times so that the movement trajectory forms a rectangle.  
+detailed_info: The end-effector of the robotic arm is currently at (0.320, -0.248, 0.775) with orientation (0.706, 0.706, 0, 0).  
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/wall/real_scene_phy.usd
+initial position: [0.31, -0.25, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |

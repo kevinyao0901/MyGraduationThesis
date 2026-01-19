@@ -1,0 +1,35 @@
+instruction: On the table, there is a red cube and a blue cube. Place each cube next to the sphere of the same color.
+detailed_info: You can use 'red_cube' ,blue_cube, 'red_Sphere' and blue_Sphere' to locate them.
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/tabletop (2)/real_scene_phy.usd
+initial position: [0.31, -0.25, 0.0]
+initial_orientation: [0.70710678, 0.0, 0.0, 0.70710678]
+code_lines: |
+  publish_gripper_width_once(0.8)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([2.285472, 1.058801, -2.535917, -2.595087, 0.515095, 1.595234, 0.231735])
+  rospy.sleep(4)
+  publish_pick_command([1.629812, 1.121809, -1.715135, -1.868964, 1.234230, 1.520674, 0.525091])
+  rospy.sleep(3)
+  publish_pick_command([1.403069, 1.367519, -1.509566, -1.366127, 1.326606, 1.559331, 0.822013])
+  rospy.sleep(4)
+  publish_gripper_width_once(0.050)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([2.285472, 1.058801, -2.535917, -2.595087, 0.515095, 1.595234, 0.231735])
+  rospy.sleep(5)
+  publish_pick_command([2.553097, -0.532064, -2.867076, -1.654495, -0.232732, 2.335495, 0.561486])
+  rospy.sleep(5)
+  publish_gripper_width_once(0.8)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([0.417056, 0.104823, -0.164462, -2.028382, -0.107730, 2.076197, 1.066564])
+  rospy.sleep(5)
+  publish_pick_command([0.284746, 0.318906, -0.067439, -1.923958, -0.009849, 2.188723, 0.985351])
+  rospy.sleep(5)
+  # publish_pick_command([-2.320708, -0.372079, 2.512880, -1.981205, 0.239493, 2.224333, 0.801642])
+  # rospy.sleep(6)
+  publish_gripper_width_once(0.050)  # 夹爪开度 4cm
+  rospy.sleep(1)
+  publish_pick_command([0.212337, 0.722274, -0.104488, -1.257180, -0.009769, 1.929454, 0.915341])
+  rospy.sleep(5)
+  publish_gripper_width_once(0.8)  # 夹爪开度 4cm
+  rospy.sleep(1)

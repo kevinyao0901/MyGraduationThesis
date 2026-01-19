@@ -1,0 +1,31 @@
+API: |
+  # Python 2D robot control script. Start with:
+  # from ros_cmd_utils import set_end_position, set_gripper_angles, get_obj_position, grasp, approach, get_operable_objs, send_nav_goal
+  #
+  # set_end_position(x, y, z, qx, qy, qz, qw)
+  # Set end-effector target pose. 7 params total.
+  # - Position in meters (x,y,z), quaternion (qx,qy,qz,qw).
+  #
+  # set_gripper_angles(angle_deg)
+  # Set gripper opening angle in 0.0–0.8. 1 param total.
+  #
+  # get_obj_position(name, topic_name="/environment_objects", timeout=5.0)
+  # Get an object's position from the environment topic. 1–3 params.
+  # - Returns a list like [x, y, z] (meters) or None on timeout/parse error.
+  #
+  # grasp(name, topic_name="/environment_objects", timeout=5.0)
+  # Grasp an object by name. 1–3 params.
+  # - Automatically moves the end-effector to the target and closes the gripper.
+  # - Do NOT issue a separate 'set_end_position' before 'grasp' for the same target.
+  #
+  # approach(name, topic_name="/environment_objects", timeout=5.0)
+  # Navigate/position near an object by name. 1–3 params.
+  # - Intended to move close enough for subsequent manipulation.
+  #
+  # get_operable_objs(topic_name="/environment_objects", timeout=5.0)
+  # Fetch the full operable-objects dictionary from the environment topic. 0–2 params.
+  # - Returns dict{name: [x,y,z], ...} or None on timeout/parse error.
+  #
+  # send_nav_goal(x, y, yaw_deg)
+  # Send a base navigation goal in the 'map' frame. 3 params total.
+  # - x,y in meters; yaw_deg in degrees (converted to quaternion internally).

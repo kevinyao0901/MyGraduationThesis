@@ -1,0 +1,8 @@
+instruction: Ask the user if the user says 1, then move forward 5 meters; if the user says 2, then move backward 1 meter; if the user says 3, then turn left 180 degrees.
+detailed_info: 
+LLM: gpt-4o
+stage: /home/winter/robot/evaluaiton/scenario/room/real_scene_phy.usd
+initial position: [0,0,0]
+initial_orientation: [1.0,0.0, 0.0, 0.0]
+filter_by_distance: True
+code_lines: |
